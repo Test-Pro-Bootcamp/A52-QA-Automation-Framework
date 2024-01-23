@@ -24,7 +24,7 @@ public class Homework16 extends BaseTest {
 
             String url = "https://qa.koel.app";
             driver.get(url);
-            WebElement logo = driver.findElement(By.cssSelector(".logo"));
+
             WebElement emailInput = driver.findElement(By.cssSelector("[type='email']"));
             WebElement passwordInput = driver.findElement(By.cssSelector("[type='password']"));
             WebElement loginButton = driver.findElement(By.cssSelector("[type='submit']"));
