@@ -27,7 +27,7 @@ public class Homework16 extends BaseTest {
 
             WebElement registrationLink = driver.findElement(By.cssSelector("[href='registration']"));
             registrationLink.click();
-            WebElement registrationText = driver.findElement(By.xpath("//h2[contains(text(), 'Register New Account  or')]"));
+            WebElement registrationText = driver.findElement(By.xpath("//div[@class='login-wrapper']/h2"));
             Assert.assertTrue(registrationText.isDisplayed());
             driver.quit();
 
