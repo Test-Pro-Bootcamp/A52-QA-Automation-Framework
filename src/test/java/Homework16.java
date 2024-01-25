@@ -32,18 +32,6 @@ public class Homework16 extends BaseTest {
             driver.quit();
 
 
-
-        //   WebElement emailInput = driver.findElement(By.cssSelector("[type='email']"));
-        //    WebElement passwordInput = driver.findElement(By.cssSelector("[type='password']"));
-        //    WebElement loginButton = driver.findElement(By.cssSelector("[type='submit']"));
-        //    emailInput.sendKeys("demo@class.com");
-        //    passwordInput.sendKeys("te$t$tudent");
-       //     loginButton.click();
-
-//            WebElement avatarIcon = driver.findElement(By.cssSelector("img[class='avatar']"));
-//            Assert.assertTrue(avatarIcon.isDisplayed());
-//            driver.quit();
-
         }
     }
 
