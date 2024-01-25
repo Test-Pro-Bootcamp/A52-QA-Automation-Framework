@@ -1,4 +1,3 @@
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -6,33 +5,44 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.xml.SuiteGenerator;
+import org.w3c.dom.html.HTMLInputElement;
 
 import java.time.Duration;
 
-import static org.openqa.selenium.remote.http.Route.options;
 
 public class Homework16 extends BaseTest {
 
     @Test
-    public void RegistrationNavigation() {
+    public void registrationNavigationTest() {
 
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--remote-allow-origins*");
+            options.addArguments("--remote-allow-origins=*");
 
-            WebDriver driver = new ChromeDriver (options);
+            WebDriver driver = new ChromeDriver(options);
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
             String url = "https://qa.koel.app";
             driver.get(url);
 
-            WebElement emailInput = driver.findElement(By.cssSelector("[type='email']"));
-            WebElement passwordInput = driver.findElement(By.cssSelector("[type='password']"));
-            WebElement loginButton = driver.findElement(By.cssSelector("[type='submit']"));
-            emailInput.sendKeys("demo@class.com");
-            passwordInput.sendKeys("te$t$tudent");
-            loginButton.click();
-
+            WebElement registrationLink = driver.findElement(By.cssSelector("[href='registration']"));
+            registrationLink.click();
+            WebElement registrationText = driver.findElement(By.xpath("//h2[contains(text(), 'Register New Account  or')]"));
+            Assert.assertTrue(registrationText.isDisplayed());
             driver.quit();
+
+
+
+        //   WebElement emailInput = driver.findElement(By.cssSelector("[type='email']"));
+        //    WebElement passwordInput = driver.findElement(By.cssSelector("[type='password']"));
+        //    WebElement loginButton = driver.findElement(By.cssSelector("[type='submit']"));
+        //    emailInput.sendKeys("demo@class.com");
+        //    passwordInput.sendKeys("te$t$tudent");
+       //     loginButton.click();
+
+//            WebElement avatarIcon = driver.findElement(By.cssSelector("img[class='avatar']"));
+//            Assert.assertTrue(avatarIcon.isDisplayed());
+//            driver.quit();
 
         }
     }
