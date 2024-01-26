@@ -19,7 +19,9 @@ public class LoginTests extends BaseTest {
         WebDriver driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        String url = "https://qa.koel.app/";
+
+        String url = "https://testpro.io/";
+
         driver.get(url);
         WebElement emailInput = driver.findElement(By.cssSelector("[type='email']"));
         WebElement passwordInput = driver.findElement(By.cssSelector("[type='password']"));
