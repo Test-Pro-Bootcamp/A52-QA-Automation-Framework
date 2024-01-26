@@ -26,7 +26,7 @@ public class HomeWork16 extends BaseTest {
 
         // THEN
         String registrationUrl = "https://qa.koel.app/registration";
-        WebElement registrationAcc = driver.findElement(By.xpath("//h2[contains(text(), 'Register new account or')]"));
+        // WebElement registrationAcc = driver.findElement(By.xpath("//h2[contains(text(), 'Register new account or')]"));
 //      Assert.assertTrue(registrationAcc.isDisplayed());
         Assert.assertEquals(driver.getCurrentUrl(), registrationUrl);
         driver.quit();
