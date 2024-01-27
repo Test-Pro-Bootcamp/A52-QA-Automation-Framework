@@ -10,9 +10,24 @@ import java.time.Duration;
 
 public class LoginTests extends BaseTest {
 
+        WebDriver driver = new ChromeDriver(options);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+
+        String url = "https://testpro.io/";
+
+        driver.get(url);
+        WebElement emailInput = driver.findElement(By.cssSelector("[type='email']"));
+        WebElement passwordInput = driver.findElement(By.cssSelector("[type='password']"));
+        WebElement loginButton = driver.findElement(By.cssSelector("[type='submit']"));
+        emailInput.sendKeys("demo@class.com");
+        passwordInput.sendKeys("te$t$tudent");
+        loginButton.click();
+
     @Test(enabled = false, description = "Check if user login with correct credentials", priority = 1, groups = "Smoke")
     public void loginTest() {
         login("demo@class.com", "te$t$tudent");
+      
         WebElement avatar = driver.findElement(By.cssSelector("#userBadge img"));
         Assert.assertTrue(avatar.isDisplayed()); // true
     }
