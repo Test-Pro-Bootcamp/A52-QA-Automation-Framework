@@ -13,7 +13,7 @@ import java.time.Duration;
 
 public class Homework16 extends BaseTest {
 
-    @Test
+  @Test
     public void registrationNavigationTest() {
 
             ChromeOptions options = new ChromeOptions();
