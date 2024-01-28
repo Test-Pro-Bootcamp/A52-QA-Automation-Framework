@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import javax.swing.*;
 import java.time.Duration;
 
 public class Homework17 extends BaseTest {
@@ -28,11 +29,14 @@ public class Homework17 extends BaseTest {
         passwordInput.sendKeys("te$t$tudent");
         loginButton.click();
 
-        WebElement CreateNewPlaylist = driver.findElement(By.cssSelector("[title='Create a new playlist']"));
-        CreateNewPlaylist.click();
-        WebElement EnterPlaylistName = driver.findElement(By.cssSelector("#playlists>form>input[type=text]"));
-        EnterPlaylistName.sendKeys("myPLAYLIST");
-        Assert.assertTrue(EnterPlaylistName.isDisplayed());
+        WebElement AllSongs = driver.findElement(By.cssSelector("//*[@id='sidebar']/section[1]/ul/li[3]/a"));
+        loginButton.click();
+        WebElement AddSong = driver.findElement(By.cssSelector(".btn-add-to"));
+        JButton btn1 = new JButton ("Click me!");
+        WebElement NewPlayList = driver.findElement(By.cssSelector("//*[@id='playlistWrapper']/header/div[3]/div/section[2]/form/input"));
+        NewPlayList.sendKeys("Shavkat");
+
+        Assert.assertTrue(NewPlayList.isDisplayed());
         driver.quit();
 
 
