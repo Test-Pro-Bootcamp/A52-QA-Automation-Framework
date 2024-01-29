@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class AddSongToPlayListTest extends BaseTest {
+public class HomeWork17 extends BaseTest {
 
     @Test
     public void
@@ -12,6 +12,7 @@ public class AddSongToPlayListTest extends BaseTest {
         String songName = "BossStatus";
         login("Lev.isenov@testpro.io", "d3la1lhX");
         WebElement allSongs = driver.findElement(By.cssSelector("a[class='songs']"));
+        Thread.sleep(3000);
         allSongs.click();
         WebElement searchInput = driver.findElement(By.cssSelector("#searchForm>input"));
         searchInput.sendKeys(songName);
