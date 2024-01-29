@@ -12,7 +12,21 @@ public class LoginTests extends BaseTest {
 
     @Test(enabled = false, description = "Check if user login with correct credentials", priority = 1, groups = "Smoke")
     public void loginTest() {
-        login("demo@class.com", "te$t$tudent");
+        login("lev.isenov@testpro.io", "d3la1lhX");
+
+        WebDriver driver = new ChromeDriver(options);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+
+        String url = "https://testpro.io/";
+
+        driver.get(url);
+        WebElement emailInput = driver.findElement(By.cssSelector("[type='email']"));
+        WebElement passwordInput = driver.findElement(By.cssSelector("[type='password']"));
+        WebElement loginButton = driver.findElement(By.cssSelector("[type='submit']"));
+        emailInput.sendKeys("lev.isenov@testpro.io");
+        passwordInput.sendKeys("d3la1lhX");
+        loginButton.click();
         WebElement avatar = driver.findElement(By.cssSelector("#userBadge img"));
         Assert.assertTrue(avatar.isDisplayed()); // true
     }

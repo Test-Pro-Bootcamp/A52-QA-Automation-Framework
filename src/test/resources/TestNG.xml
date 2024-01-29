@@ -10,6 +10,7 @@
             <class name="AddSongToPlayListTest"/>
             <class name="RegistrationNavigationTest"/>
             <class name="ProfileTest"/>
+            <class name="HomeWork16"/>
         </classes>
     </test>
 </suite>
