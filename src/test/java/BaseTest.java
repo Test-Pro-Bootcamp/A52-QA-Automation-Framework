@@ -4,8 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.*;
-
 import java.time.Duration;
 
 public class BaseTest {
@@ -29,7 +27,7 @@ public class BaseTest {
         String url = "https://qa.koel.app/";
         driver.get(url);
     }
-    @Test
+
     public void login(String email, String password) {
         WebElement emailInput = driver.findElement(By.cssSelector("[type='email']"));
         WebElement passwordInput = driver.findElement(By.cssSelector("[type='password']"));
@@ -37,12 +35,6 @@ public class BaseTest {
         emailInput.sendKeys(email);
         passwordInput.sendKeys(password);
         loginButton.click();
-
-    //@AfterMethod
-//    public void closeBrowser() {
-//        driver.quit();
-//    }
-
     }
+}
 
-    }
