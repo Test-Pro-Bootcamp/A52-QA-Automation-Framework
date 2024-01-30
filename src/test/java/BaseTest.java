@@ -4,11 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
-
 import java.time.Duration;
 
 public class BaseTest {
@@ -33,11 +28,6 @@ public class BaseTest {
         driver.get(url);
     }
 
-    @AfterMethod
-    public void closeBrowser() {
-        driver.quit();
-    }
-
     public void login(String email, String password) {
         WebElement emailInput = driver.findElement(By.cssSelector("[type='email']"));
         WebElement passwordInput = driver.findElement(By.cssSelector("[type='password']"));
@@ -47,3 +37,4 @@ public class BaseTest {
         loginButton.click();
     }
 }
+
