@@ -13,7 +13,12 @@ public class BaseTest {
 
     private ChromeDriver ChromeDriver;
 
+    @BeforeSuite
+    static void setupClass() {
+        WebDriverManager.chromedriver().setup();
+    }
     @BeforeMethod
+
     public void setUpDriver() {
 
         ChromeOptions options = new ChromeOptions();
