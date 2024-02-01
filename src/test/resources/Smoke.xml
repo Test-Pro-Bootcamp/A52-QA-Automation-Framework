@@ -10,9 +10,7 @@
                     <include name="loginTest"/>
                 </methods>
             </class>
-            <class name="ProfileTest"/>
-            <class name="RegistrationNavigationTest"/>
-        </classes>
+            </classes>
     </test>
 
 </suite>
