@@ -9,6 +9,7 @@
             <class name="RegistrationNavigationTest"/>
             <class name="ProfileTest"/>
             <class name="AddSongToPlayListTest"/>
+            <class name="DeletePlayListTest"/>
         </classes>
     </test>
 </suite>
