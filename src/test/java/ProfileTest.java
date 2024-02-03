@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -8,7 +9,7 @@ import java.util.UUID;
 public class ProfileTest extends BaseTest {
 
     @Test(groups = "Smoke")
-    public void changeProfileNameTest() throws InterruptedException {
+    public void changeProfileNameTest() {
         String newName = UUID.randomUUID().toString();
         login("demo@class.com", "te$t$tudent");
         WebElement avatar = driver.findElement(By.cssSelector("#userBadge img"));
@@ -20,8 +21,7 @@ public class ProfileTest extends BaseTest {
         nameInput.sendKeys(newName);
         WebElement saveButton = driver.findElement(By.cssSelector(".btn-submit"));
         saveButton.click();
-        Thread.sleep(3000);
-        WebElement userNameLabel = driver.findElement(By.cssSelector("#userBadge span[class=name]"));
+        WebElement userNameLabel = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#userBadge span[class=name]")));
         Assert.assertEquals(newName, userNameLabel.getText());
     }
 }
