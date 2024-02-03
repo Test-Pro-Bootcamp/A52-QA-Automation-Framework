@@ -10,6 +10,8 @@
             <class name="ProfileTest"/>
             <class name="AddSongToPlayListTest"/>
             <class name="DeletePlayListTest"/>
+            <class name="PlaySongTest"/>
+            <class name="PlaySongByActionsTest"/>
         </classes>
     </test>
 </suite>
