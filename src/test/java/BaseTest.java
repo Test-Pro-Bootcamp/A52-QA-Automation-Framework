@@ -15,6 +15,7 @@ public class BaseTest {
     protected WebDriverWait wait = null;
     protected Actions actions = null;
 
+
     @BeforeSuite
     static void setupClass() {
         WebDriverManager.chromedriver().setup();
