@@ -25,7 +25,9 @@ public class BaseTest {
     public void setUpDriver(String url) {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
+        // remove pop-up messages
         options.addArguments("--disable-notifications");
+
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 //        String url = "https://qa.koel.app/";

@@ -4,7 +4,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 public class HomeWork18 extends BaseTest {
-// PlaySongTest
+// PlaySongTests
     @Test
     public void playSongTest() {
         String songName = "BossStatus";
