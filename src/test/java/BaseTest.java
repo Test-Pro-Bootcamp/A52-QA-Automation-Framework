@@ -23,6 +23,7 @@ public class BaseTest {
 
     public void setUpDriver(String url) {
 
+
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("--disable-notifications");
