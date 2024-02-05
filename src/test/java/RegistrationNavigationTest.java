@@ -10,7 +10,7 @@ import java.time.Duration;
 
 public class RegistrationNavigationTest extends BaseTest {
 
-    @Test
+    @Test(groups = "Smoke")
     public void registrationNavigationTest() {
         WebElement registrationLink = driver.findElement(By.cssSelector("[href='registration']"));
         registrationLink.click();
