@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class HomeWork19 extends BaseTest {
-    // DeletePlayList
+    // DeletePlayListTests
     @Test
     public void deletePlayListTest() {
 
