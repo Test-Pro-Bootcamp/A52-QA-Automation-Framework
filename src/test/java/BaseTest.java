@@ -18,6 +18,7 @@ public class BaseTest {
 
     @BeforeSuite
     static void setupClass() {
+
         WebDriverManager.chromedriver().setup();
     }
     @BeforeMethod
@@ -38,6 +39,7 @@ public class BaseTest {
 
     @AfterMethod
     public void closeBrowser() {
+
         driver.quit();
     }
     public void login(String email, String password) {
