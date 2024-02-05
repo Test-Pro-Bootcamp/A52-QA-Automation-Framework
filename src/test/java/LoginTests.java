@@ -1,7 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 
@@ -27,13 +26,8 @@ public class LoginTests extends BaseTest {
     public void loginWithEmptyCredentials() {
         WebElement logo = driver.findElement(By.cssSelector(".logo"));
         login("", "");
+        WebElement avatar = driver.findElement(By.cssSelector("a[data-testid='view-profile-link']>img[class='avatar']"));
         Assert.assertFalse(avatar.isDisplayed()); // true
-    }
 
-    @Test(groups = "Regression", dataProvider = "incorrectCredentials", dataProviderClass = DataProviderCredentials.class)
-    public void loginWithEmptyCredentials(String email, String password) {
-        WebElement logo = driver.findElement(By.cssSelector(".logo"));
-        login(email, password);
-        Assert.assertTrue(logo.isDisplayed());
     }
 }

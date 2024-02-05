@@ -9,7 +9,7 @@ import java.util.UUID;
 public class ProfileTest extends BaseTest {
 
     @Test(groups = "Smoke")
-    public void changeProfileNameTest() {
+    public void changeProfileNameTest() throws InterruptedException {
         String newName = UUID.randomUUID().toString();
         login("demo@class.com", "te$t$tudent");
         WebElement avatar = driver.findElement(By.cssSelector("img.avatar"));

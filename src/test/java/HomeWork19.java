@@ -5,10 +5,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.List;
 
 public class HomeWork19 extends BaseTest {
-    // DeletePlayListTests
+    // DeletePlayListTest
     @Test
     public void deletePlayListTest() {
 
