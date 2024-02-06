@@ -1,21 +1,17 @@
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
-import javax.swing.*;
-import java.time.Duration;
 
 public class Homework17 extends BaseTest {
-
     @Test
-
     public void addSongToPlaylist() throws InterruptedException {
 
         String expectedSongAddedMessage = "Added 1 song into \"Test Pro Playlist.\"";
 
-        login("demo@class.com", "te$t$tudent");
+        provideEmail("demo@class.com");
+        providePassword("te$t$tudent");
+        clickSubmit();
         Thread.sleep(2000);
         searchSong("Ketsa");
         clickViewAllBtn();
