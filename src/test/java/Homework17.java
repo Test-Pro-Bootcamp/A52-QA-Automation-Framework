@@ -10,11 +10,9 @@ import java.time.Duration;
 public class Homework17 extends BaseTest {
 
     @Test
-<<<<<<< Updated upstream
+
     public void addSongToPlaylist() throws InterruptedException {
-=======
-    public void addSongToPlayList() {
->>>>>>> Stashed changes
+
 
         String expectedSongAddedMessage = "Added 1 song into \"Test Pro Playlist.\"";
 
