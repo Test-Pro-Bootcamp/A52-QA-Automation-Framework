@@ -8,14 +8,12 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class LoginTest extends BaseTest {
-
+public class LoginTests extends BaseTest {
     @Test
-
     public void login() {
 
-       // Added ChromeOptions argument below to fix websocket error
-        org.openqa.selenium.chrome.ChromeOptions options = new ChromeOptions();
+//      Added ChromeOptions argument below to fix websocket error
+        ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
 
         WebDriver driver = new ChromeDriver(options);
@@ -33,5 +31,25 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(avatar.isDisplayed()); // true
         driver.quit();
     }
-    }
 
+    @Test
+    public void loginWithEmptyCredentials() {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+
+        WebDriver driver = new ChromeDriver(options);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        String url = "https://qa.koel.app/";
+        driver.get(url);
+
+        WebElement logo = driver.findElement(By.cssSelector(".logo"));
+        WebElement emailInput = driver.findElement(By.cssSelector("[type='email']"));
+        WebElement loginButton = driver.findElement(By.cssSelector("[type='submit']"));
+        emailInput.sendKeys("demo@class.com");
+        loginButton.click();
+
+        Assert.assertTrue(logo.isDisplayed());
+        driver.quit();
+    }
+}

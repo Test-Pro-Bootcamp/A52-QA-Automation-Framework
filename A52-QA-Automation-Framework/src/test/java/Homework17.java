@@ -1,29 +1,29 @@
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Homework17 extends BaseTest {
-
     @Test
-
     public void addSongToPlaylist() throws InterruptedException {
 
-        String nameSong = "Pluto";
-        String namePlaylist = "TestPro Playlist";
-        String expectedSongAddedMessage = "Added 1 song into \"" + namePlaylist + ".\"";
-        login("demo@class.com", "te$t$tudent");
+        String expectedSongAddedMessage = "Added 1 song into \"Test Pro Playlist.\"";
+
+        provideEmail("demo@class.com");
+        providePassword("te$t$tudent");
+        clickSubmit();
         Thread.sleep(2000);
-        searchSong(nameSong);
+        searchSong("Ketsa");
         clickViewAllBtn();
         selectFirstSongResult();
         clickAddToBtn();
-        choosePlaylist(namePlaylist);
+        choosePlaylist();
         Assert.assertEquals(getAddToPlaylistSuccessMsg(), expectedSongAddedMessage);
     }
 
-    public void searchSong(String nameSong) throws InterruptedException {
+    public void searchSong(String name) throws InterruptedException {
         WebElement searchField = driver.findElement(By.cssSelector("div#searchForm input[type='search']"));
-        searchField.sendKeys(nameSong);
+        searchField.sendKeys(name);
         Thread.sleep(2000);
     }
     public void clickViewAllBtn() throws InterruptedException {
@@ -41,9 +41,9 @@ public class Homework17 extends BaseTest {
         addToButton.click();
         Thread.sleep(2000);
     }
-    public void choosePlaylist (String playlistName) throws InterruptedException {
+    public void choosePlaylist () throws InterruptedException {
         //We created a playlist named "Test Pro Playlist"
-        WebElement playlist = driver.findElement(By.xpath("//section[@id='songResultsWrapper']//*[contains(text(),' " + playlistName + "')]"));
+        WebElement playlist = driver.findElement(By.xpath("//section[@id='songResultsWrapper']//li[contains(text(),'Test Pro Playlist')]"));
         playlist.click();
         Thread.sleep(2000);
     }
