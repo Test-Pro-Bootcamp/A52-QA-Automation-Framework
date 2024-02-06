@@ -14,7 +14,7 @@ public void loginTest() {
 
     login("demo@class.com", "te$t$tudent");
     WebElement avatar = driver.findElement(By.cssSelector("#userBadge img"));
-    Assert.assertFalse(avatar.isDisplayed()); //true
+    Assert.assertTrue(avatar.isDisplayed()); //true
 }
 }
 

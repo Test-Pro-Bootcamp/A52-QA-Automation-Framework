@@ -1,11 +1,6 @@
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
-import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
-import javax.swing.*;
-import java.time.Duration;
 
 public class Homework17 extends BaseTest {
 
@@ -13,21 +8,22 @@ public class Homework17 extends BaseTest {
 
     public void addSongToPlaylist() throws InterruptedException {
 
-        String expectedSongAddedMessage = "Added 1 song into \"Test Pro Playlist.\"";
-
+        String nameSong = "Pluto";
+        String namePlaylist = "TestPro Playlist";
+        String expectedSongAddedMessage = "Added 1 song into \"" + namePlaylist + ".\"";
         login("demo@class.com", "te$t$tudent");
         Thread.sleep(2000);
-        searchSong("Ketsa");
+        searchSong(nameSong);
         clickViewAllBtn();
         selectFirstSongResult();
         clickAddToBtn();
-        choosePlaylist();
+        choosePlaylist(namePlaylist);
         Assert.assertEquals(getAddToPlaylistSuccessMsg(), expectedSongAddedMessage);
     }
 
-    public void searchSong(String name) throws InterruptedException {
+    public void searchSong(String nameSong) throws InterruptedException {
         WebElement searchField = driver.findElement(By.cssSelector("div#searchForm input[type='search']"));
-        searchField.sendKeys(name);
+        searchField.sendKeys(nameSong);
         Thread.sleep(2000);
     }
     public void clickViewAllBtn() throws InterruptedException {
@@ -45,7 +41,7 @@ public class Homework17 extends BaseTest {
         addToButton.click();
         Thread.sleep(2000);
     }
-    public void choosePlaylist () throws InterruptedException {
+    public void choosePlaylist (String namePlaylist) throws InterruptedException {
         //We created a playlist named "Test Pro Playlist"
         WebElement playlist = driver.findElement(By.xpath("//section[@id='songResultsWrapper']//li[contains(text(),'Test Pro Playlist')]"));
         playlist.click();

@@ -21,20 +21,18 @@ public class BaseTest {
     @BeforeMethod
     @Parameters("baseUrl")
 
-    public void setUpDriver(String url) {
+    public void setUpDriver(String BaseUrl) {
 
 
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        options.addArguments("--disable-notifications");
+        ChromeOptions optionsChromeLocal = new ChromeOptions();
+        optionsChromeLocal.addArguments("--remote-allow-origins=*","--incognito", "--start-maximized", "-lang=en");
+        optionsChromeLocal.addArguments("--disable-notifications");
 
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver(optionsChromeLocal);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10) );
+        driver.get(BaseUrl);
 
-        url = "https://qa.koel.app";
-        driver.get(url);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    }
+        }
 
     @AfterMethod
 
