@@ -41,9 +41,9 @@ public class Homework17 extends BaseTest {
         addToButton.click();
         Thread.sleep(2000);
     }
-    public void choosePlaylist (String namePlaylist) throws InterruptedException {
+    public void choosePlaylist (String playlistName) throws InterruptedException {
         //We created a playlist named "Test Pro Playlist"
-        WebElement playlist = driver.findElement(By.xpath("//section[@id='songResultsWrapper']//li[contains(text(),'Test Pro Playlist')]"));
+        WebElement playlist = driver.findElement(By.xpath("//section[@id='songResultsWrapper']//*[contains(text(),' " + playlistName + "')]"));
         playlist.click();
         Thread.sleep(2000);
     }
