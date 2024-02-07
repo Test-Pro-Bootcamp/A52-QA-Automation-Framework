@@ -1,3 +1,4 @@
+import org.example.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -6,11 +7,14 @@ import org.testng.annotations.Test;
 
 public class PlaySongByActionsTest extends BaseTest {
 
+    LoginPage loginPage;
+
     @Test
     public void playSongByContextClickTest() {
         String songLocator = "//section[@id='songsWrapper']//td[text()='%s']";
         String songName = "M33 Project - Emotional Soundtrack";
-        login("demo@class.com", "te$t$tudent");
+        loginPage = new LoginPage(driver);
+        loginPage.login("demo@class.com", "te$t$tudent");
         WebElement allSongsMenuItem = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[id='sidebar'] .songs")));
         allSongsMenuItem.click();
         WebElement song = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(songLocator, songName))));
@@ -23,7 +27,7 @@ public class PlaySongByActionsTest extends BaseTest {
 
     @Test
     public void playSongByHoverMouseTest() {
-        login("demo@class.com", "te$t$tudent");
+        loginPage.login("demo@class.com", "te$t$tudent");
         WebElement allSongsMenuItem = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[id='sidebar'] .songs")));
         allSongsMenuItem.click();
         WebElement mediaPlayer = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#mainFooter .play")));

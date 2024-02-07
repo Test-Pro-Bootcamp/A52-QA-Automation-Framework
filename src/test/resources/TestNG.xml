@@ -12,6 +12,7 @@
             <class name="DeletePlayListTest"/>
             <class name="PlaySongTest"/>
             <class name="PlaySongByActionsTest"/>
+            <class name="RenamePlayListTest"/>
         </classes>
     </test>
 </suite>

@@ -1,3 +1,4 @@
+import org.example.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -11,7 +12,8 @@ public class PlaySongTest extends BaseTest {
     @Test
     public void playSongTest() {
         String songName = "Riqui-Riqui";
-        login("demo@class.com", "te$t$tudent");
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login("demo@class.com", "te$t$tudent");
         WebElement favoritePlayListLink = driver.findElement(By.xpath("//li[contains(@class, 'favorites')]/a"));
         favoritePlayListLink.click();
         WebElement song = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format("//section[@id='favoritesWrapper']//td[text()='%s']", songName))));
