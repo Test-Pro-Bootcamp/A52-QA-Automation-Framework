@@ -13,6 +13,7 @@
             <class name="PlaySongTest"/>
             <class name="PlaySongByActionsTest"/>
             <class name="RenamePlayListTest"/>
+            <class name="ThemeTest"/>
         </classes>
     </test>
 </suite>
