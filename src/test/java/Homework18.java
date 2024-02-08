@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -7,20 +8,22 @@ public class Homework18 extends BaseTest {
 
     @Test
     public void playSongTest() throws InterruptedException {
-
+        String songName = "Pluto";
         login("demo@class.com", "te$t$tudent");
-        WebElement allSongsButton = driver.findElement(By.cssSelector("[#sidebar > section.music > ul > li:nth-child(3) > a]"));
-        Thread.sleep(3000);
-        allSongsButton.click();
-        WebElement songPluto = driver.findElement(By.cssSelector("//div/div[1]/section[1]/ol/li[1]/article/span[2]/span[1]/text()"));
-        songPluto.click();
-        WebElement nextSongButton = driver.findElement(By.cssSelector("[data-testid='play-next-btn']"));
-        nextSongButton.click();
-        WebElement soundbar = driver.findElement(By.cssSelector("[data-test='sound-bars']"));
-        Assert.assertTrue(songPluto.isDisplayed());
+        WebElement allSongs = driver.findElement(By.xpath("//*[@id='sidebar']/section[1]/ul/li[3]/a"));
+        allSongs.click();
+        Thread.sleep(2000);
 
+        WebElement searchSong = driver.findElement(By.cssSelector("#searchForm>input[type='search']"));
+        searchSong.click();
+        searchSong.sendKeys(songName, Keys.ENTER);
 
+        WebElement firstSong = driver.findElement(By.xpath("//*[@id='searchExcerptsWrapper']/div/div/section[1]/ul/article"));
+        firstSong.click();
+        Thread.sleep(2000);
 
+        WebElement soundBar = driver. findElement(By.xpath("//*[@id='mainFooter']/div[2]/div[2]/div"));
+        Assert.assertTrue(soundBar.isDisplayed());
 
     }
 

@@ -20,8 +20,7 @@ public class BaseTest {
     @BeforeMethod
     @Parameters("baseUrl")
 
-    public void setUpDriver(String BaseUrl) {
-
+    public void setUpDriver(String baseUrl) {
 
         ChromeOptions optionsChromeLocal = new ChromeOptions();
         optionsChromeLocal.addArguments("--remote-allow-origins=*","--incognito", "--start-maximized", "-lang=en");
@@ -29,7 +28,7 @@ public class BaseTest {
 
         driver = new ChromeDriver(optionsChromeLocal);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10) );
-        driver.get(BaseUrl);
+        driver.get(baseUrl);
 
         }
 

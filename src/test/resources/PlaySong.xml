@@ -3,14 +3,16 @@
 
 <suite name="Play Song Test">
 
-    <test name="Example Test" preserve-order="false">
+    <parameter name="baseUrl" value="https://qa.koel.app"/>
+
+       <test name="Example Test" preserve-order="false">
         <classes>
             <class name="Homework18">
                 <methods>
                          <include name="playSongTest"/>
                 </methods>
-                </class>
-            </classes>
+            </class>
+        </classes>
     </test>
 
 </suite>
