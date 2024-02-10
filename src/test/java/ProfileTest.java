@@ -1,3 +1,4 @@
+import org.example.pages.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -11,7 +12,8 @@ public class ProfileTest extends BaseTest {
     @Test(groups = "Smoke")
     public void changeProfileNameTest() {
         String newName = UUID.randomUUID().toString();
-        login("demo@class.com", "te$t$tudent");
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login("demo@class.com", "te$t$tudent");
         WebElement avatar = driver.findElement(By.cssSelector("#userBadge img"));
         avatar.click();
         WebElement currentPasswordField = driver.findElement(By.cssSelector("#inputProfileCurrentPassword"));
