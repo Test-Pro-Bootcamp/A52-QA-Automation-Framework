@@ -14,20 +14,23 @@ public class Homework19 extends BaseTest {
             String playListName = "TestPlayListForDeleting";
             login("demo@class.com", "te$t$tudent");
 
-            WebElement createNewPlayList = driver.findElement(By.xpath("//*[@id='playlists']/h1/i"));
-            createNewPlayList.click();
-//            WebElement playListNameInput = driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/nav/section[2]/form/input"));
-//            playListNameInput.sendKeys(playListName);
-//            playListNameInput.sendKeys(Keys.ENTER);
+            WebElement addPlayListButton = driver.findElement(By.cssSelector("#playlists i[role='button']"));
 
-            WebElement playList = driver.findElement(By.xpath("//section[@id='playlists']/li/a/text()='TestPlayListForDeleting'"));
+//            WebElement
+//            wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("i[data-testid='sidebar-create-playlist-btn']")));
+//            actions.moveToElement(addPlayListButton).perform();
+            addPlayListButton.click();
+            WebElement createPlayListButton = driver.findElement(By.cssSelector("[data-testid='playlist-context-menu-create-simple']"));
+            createPlayListButton.click();
+            WebElement playListNameInput = driver.findElement(By.cssSelector("[name='create-simple-playlist-form']>input"));
+            playListNameInput.sendKeys(playListName);
+            playListNameInput.sendKeys(Keys.ENTER);
+
+            WebElement playList = driver.findElement(By.xpath("//section[@id='playlists']//li/a[text()='TestPlayListForDeleting']"));
             playList.click();
-            WebElement deleteButton = driver.findElement(By.xpath("//button(contains(@class, 'btn-delete-playlist'))"));
+            WebElement deleteButton = driver.findElement(By.xpath("//button[contains(@class, 'btn-delete-playlist')]"));
             deleteButton.click();
-            Thread.sleep(3000);
             Assert.assertFalse(playList.isDisplayed());
-
-
 
         }
 
