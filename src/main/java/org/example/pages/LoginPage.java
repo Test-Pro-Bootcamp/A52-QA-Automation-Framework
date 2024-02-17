@@ -24,17 +24,17 @@ public class LoginPage extends BasePage {
         provideEmail(email).providePassword(password).clickSubmit();
     }
 
-    private LoginPage provideEmail(String email) {
+    public LoginPage provideEmail(String email) {
         emailInput.sendKeys(email);
         return this;
     }
 
-    private LoginPage providePassword(String password) {
+    public LoginPage providePassword(String password) {
         passwordInput.sendKeys(password);
         return this;
     }
 
-    private void clickSubmit() {
+    public void clickSubmit() {
         loginButton.click();
     }
 
