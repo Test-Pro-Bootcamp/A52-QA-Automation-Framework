@@ -26,8 +26,9 @@ public class Homework18 extends BaseTest {
         firstSong.click();
         Thread.sleep(2000);
 
-        WebElement soundbar = driver.findElement(By.xpath("//*[@id='mainFooter']/div[2]/div[2]/div"));
-        Assert.assertTrue(soundbar.isDisplayed());
-    }
+        WebElement soundBar = driver. findElement(By.xpath("//*[@id='mainFooter']/div[2]/div[2]/div"));
+        Assert.assertTrue(soundBar.isDisplayed());
+
+       }
 
 }
