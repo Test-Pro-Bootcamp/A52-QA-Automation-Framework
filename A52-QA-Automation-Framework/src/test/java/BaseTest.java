@@ -21,7 +21,7 @@ public class BaseTest {
     public void launchBrowser() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
-
+        optionsChromeLocal.addArguments("--disable-notifications");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
