@@ -6,23 +6,28 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.time.Duration;
-import java.util.List;
-import java.util.Set;
 
 public class Homwork16 {
+
     @Test
-   public void registrationNavigation() {
+
+    public <registrationLink> void  registrationNavigationTest() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
 
-        WebDriver driver = new ChromeDriver() ;
+        WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         String url = "https://qa.koel.app/";
         driver.get(url);
-        Assert.assertEquals(driver.getCurrentUrl(),url);
+        WebElement registrationLink = driver.findElement(By.cssSelector("[href = 'registration']"));
+        registrationLink click ;
+        WebElement registrationText = driver.findElement(By.xpath("//h2[contains(text(),'Register new account or']"));
+        Assert.assertTrue(registrationText.isDisplayed());
         driver.quit();
+
 
     }
 }
+
 
 
