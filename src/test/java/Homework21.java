@@ -1,6 +1,6 @@
 import org.testng.annotations.Test;
-import java.pages.HomePage;
-import java.pages.LoginPage;
+import pages.HomePage;
+import pages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 
