@@ -12,36 +12,29 @@ import org.testng.annotations.AfterMethod;
 import java.time.Duration;
 
 public class BaseTest {
-    protected WebDriver driver = null;
-    protected WebDriverWait wait = null;
+    static WebDriver driver;
+    static String url = "https://qa.koel.app/";
 
     @BeforeSuite
     static void setupClass() { WebDriverManager.chromedriver().setup(); }
+
     @BeforeMethod
-    @Parameters("baseUrl")
 
-    public void setUpDriver(String baseUrl) {
+    static void setUpBrowser() {
 
-        ChromeOptions optionsChromeLocal = new ChromeOptions();
-        optionsChromeLocal.addArguments("--remote-allow-origins=*","--incognito", "--start-maximized", "-lang=en");
-        optionsChromeLocal.addArguments("--disable-notifications");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*","--incognito", "--start-maximized", "-lang=en");
+        options.addArguments("--disable-notifications");
 
-        driver = new ChromeDriver(optionsChromeLocal);
+        driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10) );
-        driver.get(baseUrl);
-
+        driver.get(url);
 
         }
 
     @AfterMethod
 
-    public void closeBrowser() { driver.quit(); }
-    public void login(String email, String password) {
-        WebElement emailInput = driver.findElement(By.cssSelector("[type='email']"));
-        WebElement passwordInput = driver.findElement(By.cssSelector("[type='password']"));
-        WebElement loginButton = driver.findElement(By.cssSelector("[type='submit']"));
-        emailInput.sendKeys(email);
-        passwordInput.sendKeys(password);
-        loginButton.click();
+    static void tearDown() {
+        driver.quit();
     }
 }

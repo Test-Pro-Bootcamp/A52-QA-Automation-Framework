@@ -9,38 +9,34 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
-public abstract class BasePage {
+public class BasePage {
+      protected WebDriver driver;
+    protected WebDriverWait wait;
+    protected Actions actions;
 
-    WebDriver pageDriver = null;
+    public BasePage(WebDriver givenDriver) {
+        driver = givenDriver;
+        wait = new WebDriverWait (driver, Duration.ofSeconds(5));
 
-    @FindBy(xpath = "//div[contains(@class,'success')]")
-    WebElement successMessageLocator;
-
-    public BasePage(WebDriver existDriver) {
-        this.pageDriver = existDriver;
-        // add for finding all @FindBy
-        PageFactory.initElements(pageDriver, this);
     }
 
-    public WebElement findElement(By locator) {
-        return pageDriver.findElement(locator);
-    }
-
-    public WebElement waitAndFindWebElement(By locator) {
-        WebDriverWait wait = new WebDriverWait(pageDriver, Duration.ofSeconds(10));
+    protected WebElement findElement(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
-
-    public void contextClickByElement(WebElement element) {
-        Actions actions = new Actions(pageDriver);
-        actions.contextClick(element).perform();
+    protected void click(By locator) {
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
-
-    public WebElement getSuccessMessage() {
+    protected void contextClick(By locator) {
+        actions.contextClick(findElement(locator)).perform();
+    }
+    protected void doubleClick(By locator) {
+        actions.doubleClick(findElement(locator)).perform();
+    }
+    public WebElement getSuccessMessage(By successMessageLocator) {
         return successMessageLocator;
     }
 
     public void waitUntilSuccessMessageIsDisappear() {
-        WaitUtils.waitUntilInvisibilityOfElement(pageDriver, getSuccessMessage());
+        WaitUtils.waitUntilInvisibilityOfElement(driver, getSuccessMessage());
     }
 }
