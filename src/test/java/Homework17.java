@@ -3,6 +3,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.w3c.dom.html.HTMLInputElement;
 
 public class Homework17 extends BaseTest {
 
@@ -17,8 +18,10 @@ public void addSongToPlaylist() {
     song.click();
     WebElement AddTo = driver.findElement(By.cssSelector("button[data-test='add-to-btn']"));
     AddTo.click();
-    WebElement Playlist17 = driver.findElement(By.cssSelector("a[class='active']"));
-    Playlist17.click();
-    Assert.assertEquals("Added 1 song into {Playlist17}"());
+    WebElement hw17 = driver.findElement(By.cssSelector("li[class='playlist playlist']"));
+    hw17.click();
+    Assert.assertEquals("Added 1 song into {hw17}"());
+
+
 }
 }
