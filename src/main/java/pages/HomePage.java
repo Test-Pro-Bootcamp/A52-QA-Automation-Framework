@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import java.util.List;
+import java.time.Duration;
+
 
 public class HomePage extends BasePage {
 
@@ -48,7 +50,6 @@ public class HomePage extends BasePage {
     public void createPlaylist(Actions actions,String playlistName) throws InterruptedException {
         actions.moveToElement(getAddPlaylistButton()).perform();
         getAddPlaylistButton().click();
-        Thread.sleep(3000);
         getCreatePlaylistButton().click();
         getPlaylistNameInput().sendKeys(playlistName);
         getPlaylistNameInput().sendKeys(Keys.ENTER);
@@ -68,7 +69,6 @@ public class HomePage extends BasePage {
 
     public void renamePlayList(String currentPlayListName, String newPlayListName) throws InterruptedException {
         contextClickByElement(getPlayListByName(currentPlayListName));
-        Thread.sleep(3000);
         editButton.click();
         for (int i = 0; i < currentPlayListName.length(); i++) {
             renamePlaylistInput.sendKeys(Keys.BACK_SPACE);

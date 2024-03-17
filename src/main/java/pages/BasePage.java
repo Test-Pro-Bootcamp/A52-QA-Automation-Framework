@@ -10,30 +10,25 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class BasePage {
-      protected WebDriver driver;
-    protected WebDriverWait wait;
-    protected Actions actions;
+    WebDriver driver;
+    WebDriverWait wait;
+    Actions actions;
 
     public BasePage(WebDriver givenDriver) {
         driver = givenDriver;
         wait = new WebDriverWait (driver, Duration.ofSeconds(5));
-
+        actions = new Actions(driver);
     }
 
-    protected WebElement findElement(By locator) {
+    public WebElement findElement(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
-    protected void click(By locator) {
-        wait.until(ExpectedConditions.elementToBeClickable(locator));
-    }
-    protected void contextClick(By locator) {
-        actions.contextClick(findElement(locator)).perform();
-    }
+
     protected void doubleClick(By locator) {
         actions.doubleClick(findElement(locator)).perform();
     }
-    public WebElement getSuccessMessage(By successMessageLocator) {
-        return successMessageLocator;
+    public WebElement getSuccessMessage() {
+        return successMessage;
     }
 
     public void waitUntilSuccessMessageIsDisappear() {
