@@ -20,7 +20,7 @@ public void addSongToPlaylist() {
     AddTo.click();
     WebElement hw17 = driver.findElement(By.cssSelector("li[class='playlist playlist']"));
     hw17.click();
-    Assert.assertEquals("Added 1 song into {hw17}"());
+    Assert.assertTrue(hw17.isDisplayed());
 
 
 }

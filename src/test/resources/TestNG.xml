@@ -14,6 +14,8 @@
             <class name="PlaySongByActionsTest"/>
             <class name="RenamePlayListTest"/>
             <class name="ThemeTest"/>
+            <class name="Homework17"/>
+            <class name="Hw18"/>
         </classes>
     </test>
 </suite>
