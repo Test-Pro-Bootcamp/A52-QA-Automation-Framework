@@ -17,6 +17,7 @@
             <class name="ThemeTest"/>
             <class name="Homework17"/>
             <class name="Hw18"/>
+            <class name="hw19"/>
         </classes>
     </test>
 </suite>
