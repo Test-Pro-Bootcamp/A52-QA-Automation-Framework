@@ -29,8 +29,14 @@ test {
     }
 }
 
-task smokeTest(type: Test) {
+/*task smokeTest(type: Test) {
     useTestNG() {
         suites "src/test/resources/Smoke.xml"
     }
 }
+
+test {
+    useSmok() {
+        suites "src/test/resources/Smok.xml"
+    }
+}*/

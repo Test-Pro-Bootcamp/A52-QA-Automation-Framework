@@ -5,15 +5,18 @@
 <parameter name="baseUrl" value="https://qa.koel.app/"/>
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="CucumberRunner"/>
-<!--            <class name="RegistrationNavigationTest"/>-->
-<!--            <class name="ProfileTest"/>-->
-<!--            <class name="AddSongToPlayListTest"/>-->
-<!--            <class name="DeletePlayListTest"/>-->
-<!--            <class name="PlaySongTest"/>-->
-<!--            <class name="PlaySongByActionsTest"/>-->
-<!--            <class name="RenamePlayListTest"/>-->
-<!--            <class name="ThemeTest"/>-->
+
+            <class name="LoginTests"/>
+            <class name="RegistrationNavigationTest"/>
+            <class name="ProfileTest"/>
+            <class name="AddSongToPlayListTest"/>
+            <class name="DeletePlayListTest"/>
+            <class name="PlaySongTest"/>
+            <class name="PlaySongByActionsTest"/>
+            <class name="RenamePlayListTest"/>
+            <class name="ThemeTest"/>
+            <class name="Homework17"/>
+            <class name="Hw18"/>
         </classes>
     </test>
 </suite>
