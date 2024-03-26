@@ -34,3 +34,9 @@ task smokeTest(type: Test) {
         suites "src/test/resources/Smoke.xml"
     }
 }
+
+test {
+    useSmok() {
+        suites "src/test/resources/Smok.xml"
+    }
+}
