@@ -9,11 +9,11 @@ public class ThemeTest extends BaseTest {
     @Test
     public void changeThemeTest() {
         String themeName = "Classic";
-        LoginPage loginPage = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
         loginPage.login("demo@class.com", "te$t$tudent");
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage(getDriver());
         homePage.getAvatar().click();
-        ProfilePage profilePage = new ProfilePage(driver);
+        ProfilePage profilePage = new ProfilePage(getDriver());
         profilePage.chooseThemByName(themeName);
         Assert.assertTrue(profilePage.isThemeSelected(themeName));
     }

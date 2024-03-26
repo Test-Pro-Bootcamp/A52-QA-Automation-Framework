@@ -12,16 +12,16 @@ public class ProfileTest extends BaseTest {
     @Test(groups = "Smoke")
     public void changeProfileNameTest() {
         String newName = UUID.randomUUID().toString();
-        LoginPage loginPage = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
         loginPage.login("demo@class.com", "te$t$tudent");
-        WebElement avatar = driver.findElement(By.cssSelector("#userBadge img"));
+        WebElement avatar = getDriver().findElement(By.cssSelector("#userBadge img"));
         avatar.click();
-        WebElement currentPasswordField = driver.findElement(By.cssSelector("#inputProfileCurrentPassword"));
+        WebElement currentPasswordField = getDriver().findElement(By.cssSelector("#inputProfileCurrentPassword"));
         currentPasswordField.sendKeys("te$t$tudent");
-        WebElement nameInput = driver.findElement(By.cssSelector("#inputProfileName"));
+        WebElement nameInput = getDriver().findElement(By.cssSelector("#inputProfileName"));
         nameInput.clear();
         nameInput.sendKeys(newName);
-        WebElement saveButton = driver.findElement(By.cssSelector(".btn-submit"));
+        WebElement saveButton = getDriver().findElement(By.cssSelector(".btn-submit"));
         saveButton.click();
         WebElement userNameLabel = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#userBadge span[class=name]")));
         Assert.assertEquals(newName, userNameLabel.getText());

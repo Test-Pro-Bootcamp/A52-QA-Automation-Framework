@@ -9,15 +9,15 @@ public class LoginTests extends BaseTest {
 
     @Test(description = "Check if user login with correct credentials", priority = 1, groups = "Smoke")
     public void loginTest() {
-        loginPage = new LoginPage(driver);
+        loginPage = new LoginPage(getDriver());
         loginPage.login("demo@class.com", "te$t$tudent");
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage(getDriver());
         Assert.assertFalse(homePage.getAvatar().isDisplayed()); // true
     }
 
     @Test(groups = "Regression", dataProvider = "incorrectCredentials", dataProviderClass = DataProviderCredentials.class)
     public void loginWithEmptyCredentials(String email, String password) {
-        loginPage = new LoginPage(driver);
+        loginPage = new LoginPage(getDriver());
         loginPage.login(email, password);
         Assert.assertTrue(loginPage.getLogo().isDisplayed());
     }
